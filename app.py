@@ -9,7 +9,7 @@ import altair as alt
 import datetime as dt
 from datetime import datetime, date, timedelta
 
-from pycaret.regression import *
+# from pycaret.regression import *
 
 
 st.header("Crude Oil Price Foreacst")
@@ -135,14 +135,19 @@ def model_choice():
 			st.write(f"Close	:   {close_forecast[0]:10.6f}")
 		else:
 
-			forecast_open = pycaret_model(df_history, today, 'open')
-			forecast_close = pycaret_model(df_history, today, 'close')
+#			forecast_open = pycaret_model(df_history, today, 'open')
+#			forecast_close = pycaret_model(df_history, today, 'close')
 
-			open_forecast = forecast_open['prediction_label'][-1]
-			close_forecast = forecast_close['prediction_label'][-1]
+			open_forecast = "N/A" #forecast_open['prediction_label'][-1]
+			close_forecast = "N/A" #forecast_close['prediction_label'][-1]
 
-			st.write(f"Open	 :   {open_forecast:10.6f}")
-			st.write(f"Close	:   {close_forecast:10.6f}")
+#			st.write(f"Open	 :   {open_forecast:10.6f}")
+#			st.write(f"Close	:   {close_forecast:10.6f}")
+
+
+			st.write(f"Open	 :   {open_forecast}")
+			st.write(f"Close	:   {close_forecast}")
+
 
 
 		y_min = df_history[df_history['date']>(today+timedelta(days=-days_deep))]['open'].min()  # Adjust the y-axis minimum value
@@ -183,14 +188,22 @@ def model_choice():
 
 		else:
 
-			forecast_open = pycaret_model(df_history, tomorrow, 'open')
-			forecast_close = pycaret_model(df_history, tomorrow, 'close')
+#			forecast_open = pycaret_model(df_history, tomorrow, 'open')
+#			forecast_close = pycaret_model(df_history, tomorrow, 'close')
 
-			open_forecast = forecast_open['prediction_label'][-1]
-			close_forecast = forecast_close['prediction_label'][-1]
+#			open_forecast = forecast_open['prediction_label'][-1]
+#			close_forecast = forecast_close['prediction_label'][-1]
 
-			st.write(f"Open	 :   {open_forecast:10.6f}")
-			st.write(f"Close	:   {close_forecast:10.6f}")
+#			st.write(f"Open	 :   {open_forecast:10.6f}")
+#			st.write(f"Close	:   {close_forecast:10.6f}")
+
+			open_forecast = "N/A" #forecast_open['prediction_label'][-1]
+			close_forecast = "N/A" #forecast_close['prediction_label'][-1]
+
+			st.write(f"Open	 :   {open_forecast}")
+			st.write(f"Close	:   {close_forecast}")
+
+
 
 #		st.line_chart(df_history[df_history['date']>(today+timedelta(days=-days_deep))], x="date", y=['open', 'close'], color=["#ff0000", "#0099"])
 
@@ -284,17 +297,8 @@ def model_choice():
 
 			st.altair_chart(line_chart, use_container_width=True)
 
-
-#			st.line_chart(df_test, x="date", y=['open_forecast', 'open_history'], color=["#ff0000", "#0099"])
-
-#			st.line_chart(df_test, x="date", y=['close_forecast', 'close_history'], color=["#ff0000", "#0099"])
-
-
 			st.write('Error')
 			st.line_chart(df_test, x="date", y=['open_pct', 'close_pct'], color=["#ff0000", "#0099"])
-
-	
-#s			data = df_history[df_history['date']>(today+timedelta(days=-days_deep))][['date', 'open', 'close']]
 
 
 
