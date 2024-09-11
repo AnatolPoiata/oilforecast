@@ -160,7 +160,7 @@ def model_choice():
 
 		data = df_history[df_history['date']>(today+timedelta(days=-days_deep))][['date', 'open', 'close']]
 
-		st.write('Historical evalution')
+		st.write('Historical evolution')
 
 		line_chart = alt.Chart(data).mark_line().encode(
     							x=alt.X('date:T', axis=alt.Axis(title='Date', grid=True, 
@@ -217,7 +217,7 @@ def model_choice():
 
 		data = df_history[df_history['date']>(today+timedelta(days=-days_deep))][['date', 'open', 'close']]
 
-		st.write('Historical evalution')
+		st.write('Historical evolution')
 
 
 		line_chart = alt.Chart(data).mark_line().encode(
