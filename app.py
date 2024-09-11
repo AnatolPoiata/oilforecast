@@ -122,13 +122,12 @@ def model_choice():
 
 	tab1, tab2, tab3 = st.tabs(["Today", "Tomorrow", "Historical"])
 
-	tab1.subheader(today.strftime('%Y-%m-%d'))
+	tab1.subheader(today.strftime('%Y-%m-%d') + ' Forecast')
 
 	with tab1:
 
 		open_forecast = df_forecast[df_forecast['date']==today]['open'].tolist()
 		close_forecast = df_forecast[df_forecast['date']==today]['close'].tolist()
-
 
 		if (len(open_forecast)>0):
 			st.write(f"Open	 :   {open_forecast[0]:10.6f}")
@@ -161,6 +160,8 @@ def model_choice():
 
 		data = df_history[df_history['date']>(today+timedelta(days=-days_deep))][['date', 'open', 'close']]
 
+		st.write('Historical evalution')
+
 		line_chart = alt.Chart(data).mark_line().encode(
     							x=alt.X('date:T', axis=alt.Axis(title='Date', grid=True, 
                                   format='%Y-%m-%d', labelAngle=-45)
@@ -174,7 +175,7 @@ def model_choice():
 		st.altair_chart(line_chart, use_container_width=True)
 
 
-	tab2.subheader(tomorrow.strftime('%Y-%m-%d'))
+	tab2.subheader(tomorrow.strftime('%Y-%m-%d') + ' Forecast')
 
 	with tab2:
 
@@ -215,6 +216,9 @@ def model_choice():
 
 
 		data = df_history[df_history['date']>(today+timedelta(days=-days_deep))][['date', 'open', 'close']]
+
+		st.write('Historical evalution')
+
 
 		line_chart = alt.Chart(data).mark_line().encode(
     							x=alt.X('date:T', axis=alt.Axis(title='Date', grid=True, 
