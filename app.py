@@ -40,11 +40,11 @@ column_config_h={
 		format="%.6f",
 	),
 	'close_forecast': st.column_config.NumberColumn(
-		"Open Forecast",
+		"Close Forecast",
 		format="%.6f",
 	),
 	'close_history': st.column_config.NumberColumn(
-		"Open History",
+		"Close History",
 		format="%.6f",
 	),
 	'open_pct': st.column_config.NumberColumn(
