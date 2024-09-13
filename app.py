@@ -302,6 +302,11 @@ def model_choice():
 			st.altair_chart(line_chart, use_container_width=True)
 
 			st.write('Error')
+
+			st.write('Average error Open  : ', df_test['open_pct'].mean())
+
+			st.write('Average error Close : ', df_test['close_pct'].mean())
+
 			st.line_chart(df_test, x="date", y=['open_pct', 'close_pct'], color=["#ff0000", "#0099"])
 
 
