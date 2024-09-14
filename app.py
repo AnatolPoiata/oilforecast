@@ -249,6 +249,12 @@ def model_choice():
 		start_date = selected_dates[0]
 		end_date = selected_dates[1]
 
+		st.write('start_date',start_date)
+		st.write('end_date', end_date)
+
+		st.dataframe(data=df_test[['date', 'open_forecast', 'open_history','open_pct', 'close_forecast', 'close_history', 'close_pct']], hide_index=True, column_config=column_config_h)
+
+
 		df_test = df_test[(df_test['date']>=start_date) & (df_test['date']<=end_date)]
 		df_test.dropna(subset=['open_history'], inplace=True)
 
